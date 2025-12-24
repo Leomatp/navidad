@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #FCE4EC;
+  color: #333;
+  text-align: center;
+}
+
+.hero {
+  padding: 60px 20px;
+  background: #F8BBD0;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+button {
+  background: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #F48FB1;
+  color: white;
+}
+.ella {
+  padding: 60px 20px;
+  background: #FFFFFF;
+}
+
+.ella h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.ella-sub {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.ella-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ella-card {
+  background: #FCE4EC;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.ella-card:hover {
+  transform: translateY(-8px);
+}
+
+.ella-card img,
+.ella-card video {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.ella-card span {
+  display: block;
+  padding: 15px;
+  font-size: 1rem;
+  background: #F8BBD0;
+  color: #333;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Feliz navidad bebe preciosa 🐸💗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="ella">
+        <h2>Ella 🐸💗</h2>
+        <p class="ella-sub">
+            La niña màs linda del mundo mundial
+        </p>
+
+        <div class="ella-grid">
+            <!-- Foto / Video 1 -->
+            <div class="ella-card">
+                <video src="img/su-sonrisa.mp4" controls></video>
+                <span>La sonrisa que me enamora</span>
+            </div>
+
+            <!-- Foto / Video 2 -->
+            <div class="ella-card">
+                <video src="img/despertando.mp4" controls></video>
+                <span>Mi bebe despertando</span>
+            </div>
+
+            <!-- Foto / Video 3 -->
+            <div class="ella-card">
+                <video src="img/sus-ojos.mp4" controls></video>
+                <span>Los ojitos preciosos de mi bebe 🐸💗</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <h1>A pesar de la distancia ,te siento cerca de mi 🐸💗</h1>
+        <p>Aunque no esté a tu lado, hice este lugar solo para ti</p>
+        <button id="playMusic">🎵 Reproducir nuestra canción</button>
+    </section>
+
+    <section class="frases">
+        <h2>Frases que solo nosotros entendemos</h2>
+        <p id="frase"></p>
+        <button onclick="fraseRandom()">🐸 Dame otra</button>
+    </section>
+
+    <section class="audios">
+        <h2>Audios mios 💕</h2>
+        <button onclick="playAudio('audio_triste')">Si estás triste</button>
+        <button onclick="playAudio('audio_extrano')">Si me extrañas</button>
+    </section>
+
+    <audio id="bgMusic" src="audio/kilometros.mp3"></audio>
+    <audio id="audio_triste" src="audio/si-estas-triste.ogg"></audio>
+    <audio id="audio_extrano" src="audio/para-ti.ogg"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
