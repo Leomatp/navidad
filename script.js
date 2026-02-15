@@ -64,3 +64,11 @@ document.querySelectorAll('audio').forEach(a => {
     if (a.id === 'bgMusic') updateBgButton();
   });
 });
+
+// Si estamos en una página de fecha, destacar enlace del dashboard (si existe)
+try {
+  const backLink = document.querySelector('.back');
+  if (backLink) {
+    // nothing for now; placeholder in case we add behaviors later
+  }
+} catch (e) {}

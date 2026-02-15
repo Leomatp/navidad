@@ -8,50 +8,60 @@
 </head>
 
 <body>
-    <section class="ella">
-        <h2>Ella 🐸💗</h2>
-        <p class="ella-sub">
-            La niña màs linda del mundo mundial
-        </p>
-
-        <div class="ella-grid">
-            <!-- Foto / Video 1 -->
-            <div class="ella-card">
-                <video src="img/su-sonrisa.mp4" controls></video>
-                <span>La sonrisa que me enamora</span>
-            </div>
-
-            <!-- Foto / Video 2 -->
-            <div class="ella-card">
-                <video src="img/despertando.mp4" controls></video>
-                <span>Mi bebe despertando</span>
-            </div>
-
-            <!-- Foto / Video 3 -->
-            <div class="ella-card">
-                <video src="img/sus-ojos.mp4" controls></video>
-                <span>Los ojitos preciosos de mi bebe 🐸💗</span>
-            </div>
+    <header class="dashboard">
+        <h1>Mi Dashboard</h1>
+        <p class="dashboard-sub">Escoge una fecha para ver su página dedicada</p>
+        <div class="date-list">
+            <a class="date-link" href="dates/2025-12-25.html">2025-12-25</a>
+            <a class="date-link" href="dates/2026-02-14.html">2026-02-14</a>
+            <a class="date-link" href="dates/otra-fecha.html">Otra fecha</a>
         </div>
-    </section>
+    </header>
 
-    <section class="hero">
-        <h1>A pesar de la distancia ,te siento cerca de mi 🐸💗</h1>
-        <p>Aunque no esté a tu lado, hice este lugar solo para ti</p>
-        <button id="playMusic">🎵 Reproducir nuestra canción</button>
-    </section>
+    <main>
+        <section class="dashboard-hero">
+            <h2>Bienvenida amorcito 💕</h2>
+            <p>Aquí están todos nuestros momentos especiales</p>
+        </section>
 
-    <section class="frases">
-        <h2>Frases que solo nosotros entendemos</h2>
-        <p id="frase"></p>
-        <button onclick="fraseRandom()">🐸 Dame otra</button>
-    </section>
+        <section class="dates-container">
+            <div class="date-card">
+                <div class="date-card-header">
+                    <span class="date-label">2025-12-25</span>
+                </div>
+                <div class="date-card-content">
+                    <h3>🎄 Navidad</h3>
+                    <p>Nuestro primer regalo juntos</p>
+                </div>
+                <a href="dates/2025-12-25.html" class="date-card-link">Ver →</a>
+            </div>
 
-    <section class="audios">
-        <h2>Audios mios 💕</h2>
-        <button onclick="playAudio('audio_triste')">Si estás triste</button>
-        <button onclick="playAudio('audio_extrano')">Si me extrañas</button>
-    </section>
+            <div class="date-card">
+                <div class="date-card-header featured">
+                    <span class="date-label">2026-02-14</span>
+                </div>
+                <div class="date-card-content">
+                    <h3>💗 San Valentín</h3>
+                    <p>Primer mes juntos, primer amor</p>
+                </div>
+                <a href="dates/2026-02-14.html" class="date-card-link">Ver →</a>
+            </div>
+
+            <div class="date-card add-date">
+                <div class="date-card-content">
+                    <h3>➕</h3>
+                    <p>Añadir nueva fecha</p>
+                </div>
+                <a href="dates/otra-fecha.html" class="date-card-link">Crear →</a>
+            </div>
+        </section>
+
+        <section class="dashboard-footer">
+            <h2>Nuestro amor 🐸💗</h2>
+            <p>A pesar de la distancia, cada momento contigo es especial.</p>
+            <p>Este es mi regalo para ti, hecho con todo mi corazón.</p>
+        </section>
+    </main>
 
     <audio id="bgMusic" src="audio/kilometros.mp3"></audio>
     <audio id="audio_triste" src="audio/si-estas-triste.ogg"></audio>

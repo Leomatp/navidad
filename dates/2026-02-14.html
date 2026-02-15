@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>San Valentín 💗</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            text-align: center;
+            background: #ffe6f0;
+            overflow-x: hidden;
+        }
+
+        /* corazones fondo */
+        .corazones {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .corazon {
+            position: absolute;
+            color: #ff4d88;
+            animation: flotar linear infinite;
+        }
+
+        @keyframes flotar {
+            from {
+                transform: translateY(100vh) scale(1);
+            }
+
+            to {
+                transform: translateY(-10vh) scale(1.4);
+            }
+        }
+
+        /* slider */
+        .slider {
+            width: 90%;
+            max-width: 700px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform .6s ease;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+        }
+
+        .slide img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 600px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            font-size: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px
+        }
+
+        .next {
+            right: 10px
+        }
+
+        /* grid videos */
+        .ella-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .ella-card {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+            width: 220px;
+        }
+
+        video,
+        img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 30px;
+            background: #ff4d88;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: .3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .carta {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+        }
+
+        .back {
+            display: inline-block;
+            margin: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="corazones" id="corazones"></div>
+
+    <a class="back" href="../index.html">← Volver</a>
+
+    <h1>Feliz San Valentín mi amor 🐸💗</h1>
+    <p>Primer mes juntos 💕</p>
+
+    <!-- SLIDER -->
+    <div class="slider">
+        <div class="slides" id="slides">
+
+            <!-- CAMBIA ESTAS IMAGENES -->
+            <div class="slide"><img src="../img/labios.jpeg"></div>
+            <div class="slide"><img src="../img/mirada-traviesa.jpeg"></div>
+            <div class="slide"><img src="../img/posando.jpeg"></div>
+            <div class="slide"><img src="../img/videollamada.jpeg" alt=""></div>
+
+        </div>
+
+        <button class="nav prev" onclick="mover(-1)">‹</button>
+        <button class="nav next" onclick="mover(1)">›</button>
+    </div>
+
+    <!-- GALERIA 3 ELEMENTOS -->
+    <h2>Ella 🐸💗</h2>
+
+    <div class="ella-grid">
+
+        <div class="ella-card">
+            <video src="../img/besitos.mp4" controls></video>
+            <span>Besitos de mi amor</span>
+        </div>
+
+        <div class="ella-card">
+            <img src="../img/videollamada-2.jpeg" alt="">
+            <span>videollamada con mi bebe</span>
+        </div>
+
+        <div class="ella-card">
+            <img src="../img/sonrisa.jpeg" alt="">
+            <span>La sonrisa que me enamora</span>
+        </div>
+
+    </div>
+
+    <!-- CARTA -->
+    <div class="carta">
+        <h2>Cartita para ti 💌</h2>
+
+        <p>
+            Feliz San Valentin y primer mes amorcito 🐸💗. Aunque no estemos juntos físicamente, se que a pesar de la
+            distancia
+            lo que tenemos es algo muy bonito , me encantas , me fascinas y me haces muy feliz ,
+            Me encanta hablar contigo , me encanta escucharte , me encanta todo de ti , eres la niña más linda del mundo
+            mundial .
+            Te amo mucho 💕.
+        </p>
+
+    </div>
+
+    <button onclick="document.getElementById('music').play()">🎵 Nuestra canción</button>
+    <audio id="music" src="../audio/kilometros.mp3"></audio>
+
+    <script>
+
+        /* corazones animados */
+        const cont = document.getElementById("corazones");
+
+        for (let i = 0; i < 30; i++) {
+            let h = document.createElement("div");
+            h.className = "corazon";
+            h.innerHTML = "❤";
+            h.style.left = Math.random() * 100 + "%";
+            h.style.fontSize = (10 + Math.random() * 25) + "px";
+            h.style.animationDuration = (5 + Math.random() * 10) + "s";
+            cont.appendChild(h);
+        }
+
+        /* slider */
+        let index = 0;
+        const slides = document.getElementById("slides");
+        const total = slides.children.length;
+
+        function mostrar() {
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function mover(dir) {
+            index += dir;
+            if (index < 0) index = total - 1;
+            if (index >= total) index = 0;
+            mostrar();
+        }
+
+        setInterval(() => {
+            index = (index + 1) % total;
+            mostrar();
+        }, 5000);
+
+    </script>
+
+</body>
+
+</html>

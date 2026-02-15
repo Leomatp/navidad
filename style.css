@@ -1,14 +1,14 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #FCE4EC;
-  color: #333;
+  background: #fff;
+  color: #111;
   text-align: center;
 }
 
 .hero {
   padding: 60px 20px;
-  background: #F8BBD0;
+  background: #ffe6f0;
 }
 
 h1 {
@@ -16,22 +16,23 @@ h1 {
 }
 
 button {
-  background: white;
-  border: none;
+  background: #fff;
+  border: 2px solid #e91e63;
   padding: 12px 20px;
-  border-radius: 25px;
+  border-radius: 30px;
   cursor: pointer;
   margin: 10px;
   font-size: 1rem;
+  color: #111;
 }
 
 button:hover {
-  background: #F48FB1;
-  color: white;
+  background: #e91e63;
+  color: #fff;
 }
 .ella {
   padding: 60px 20px;
-  background: #FFFFFF;
+  background: #fff;
 }
 
 .ella h2 {
@@ -54,8 +55,8 @@ button:hover {
 }
 
 .ella-card {
-  background: #FCE4EC;
-  border-radius: 20px;
+  background: #fff0f6;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
@@ -76,6 +77,170 @@ button:hover {
   display: block;
   padding: 15px;
   font-size: 1rem;
-  background: #F8BBD0;
-  color: #333;
+  background: #e91e63;
+  color: #fff;
 }
+
+/* Dashboard por fecha - paleta rosa/rojo/negro/blanco */
+.dashboard {
+  padding: 40px 20px;
+  background: linear-gradient(90deg,#fff 0%, #ffe6f0 100%);
+  border-bottom: 6px solid #e91e63;
+}
+.dashboard h1 {
+  margin: 0 0 6px 0;
+  font-size: 2rem;
+  color: #e91e63;
+}
+.dashboard-sub {
+  color: #111;
+  margin-bottom: 18px;
+}
+.date-list {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.date-link {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #111;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 2px solid #e91e63;
+}
+.date-link:hover { background: #e91e63; color:#fff; }
+
+.dashboard-hero { 
+  padding: 40px 20px;
+  text-align: center;
+}
+.dashboard-hero h2 {
+  font-size: 2rem;
+  color: #e91e63;
+  margin: 0 0 10px 0;
+}
+.dashboard-hero p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.dates-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.date-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ffe6f0;
+}
+
+.date-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(233, 30, 99, 0.25);
+  border-color: #e91e63;
+}
+
+.date-card-header {
+  background: linear-gradient(135deg, #e91e63 0%, #ff5983 100%);
+  padding: 20px;
+  color: #fff;
+}
+
+.date-card-header.featured {
+  background: linear-gradient(135deg, #ff5983 0%, #e91e63 100%);
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+}
+
+.date-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.date-card-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.date-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.date-card p {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.date-card-link {
+  display: block;
+  padding: 12px 20px;
+  background: #e91e63;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  border-top: 1px solid #ffe6f0;
+}
+
+.date-card-link:hover {
+  background: #111;
+}
+
+.date-card.add-date {
+  border: 2px dashed #e91e63;
+  background: #fff0f6;
+}
+
+.date-card.add-date:hover {
+  background: #ffe6f0;
+}
+
+.date-card.add-date .date-card-content h3 {
+  font-size: 2.5rem;
+  color: #e91e63;
+}
+
+.dashboard-footer {
+  padding: 60px 20px;
+  background: linear-gradient(90deg, #f5f5f5 0%, #ffe6f0 100%);
+  text-align: center;
+  margin-top: 40px;
+}
+
+.dashboard-footer h2 {
+  font-size: 2rem;
+  color: #e91e63;
+  margin-bottom: 15px;
+}
+
+.dashboard-footer p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.back { display:inline-block; margin:14px; color:#111; text-decoration:none; }
+.back:hover { color:#e91e63 }
+.empty-slot { padding: 40px 20px; color:#111 }
+.muted { color:#777 }
