@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Memory - Parejas</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .game-wrap{max-width:760px;margin:30px auto;padding:24px}
+    /* tablero con look 'madera' y cartas estilo juego */
+    .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding:18px;background:linear-gradient(180deg,#f3e9dd 0%,#e9dfd1 100%);border-radius:12px}
+    .card{background:#7b5e3a;color:transparent;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:18px;font-size:1.8rem;cursor:pointer;border:2px solid rgba(0,0,0,0.12);box-shadow:inset 0 -6px 12px rgba(0,0,0,0.08);transition:transform .12s ease}
+    .card:hover{transform:translateY(-4px)}
+    .card.flipped{background:linear-gradient(180deg,#fff 0%, #ffe 100%);color:#333;box-shadow:0 8px 18px rgba(0,0,0,0.08)}
+    .controls{display:flex;gap:8px;justify-content:center;margin-top:14px}
+    @media(max-width:640px){.grid{grid-template-columns:repeat(4,1fr)}}
+  </style>
+</head>
+<body>
+  <main class="date-page game-wrap game-theme">
+  <div class="date-card game-card">
+      <div class="date-card-header"><span class="date-label">Juego</span></div>
+      <div class="date-card-content">
+        <h3>Memory — Encuentra las parejas</h3>
+        <p>Vuelve a entrenar la memoria: empareja todos los iconos en el menor número de movimientos.</p>
+        <div id="board" class="grid"></div>
+        <div class="controls">
+          <button id="newBtn">Nuevo juego</button>
+          <div id="stats" style="align-self:center;color:var(--muted-text)"></div>
+        </div>
+      </div>
+      <a class="date-card-link" href="../index.html">Volver →</a>
+    </div>
+  </main>
+  <script src="score-utils.js"></script>
+  <script src="memory.js"></script>
+</body>
+</html>

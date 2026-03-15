@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .game-wrap{max-width:520px;margin:30px auto;padding:24px}
+    .board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .cell{background:#fff;padding:32px;font-size:1.8rem;display:flex;align-items:center;justify-content:center;border-radius:8px;cursor:pointer;border:1px solid rgba(0,0,0,0.06)}
+    .controls{display:flex;gap:8px;justify-content:center;margin-top:12px}
+  </style>
+</head>
+<body>
+  <main class="date-page game-wrap game-theme">
+    <div class="date-card game-card">
+      <div class="date-card-header"><span class="date-label">Juego</span></div>
+      <div class="date-card-content">
+        <h3>Tic‑Tac‑Toe</h3>
+        <p>Dos jugadores en el mismo dispositivo. Coloca tres en línea.</p>
+        <div id="board" class="board"></div>
+        <div class="controls">
+          <div id="turn" style="align-self:center;color:var(--muted-text)"></div>
+          <button id="resetBtn">Reiniciar</button>
+        </div>
+      </div>
+      <a class="date-card-link" href="../index.html">Volver →</a>
+    </div>
+  </main>
+  <script src="score-utils.js"></script>
+  <script src="tictactoe.js"></script>
+</body>
+</html>

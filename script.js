@@ -73,4 +73,66 @@ try {
   }
 } catch (e) {}
 
-// Nota: el bloqueo de 2025-03-21 fue removido — enlaces vuelven a comportarse normalmente
+// Nota: el bloqueo de marzo fue removido — enlaces vuelven a comportarse normalmente
+
+// Secciones del dashboard (Fechas / Juegos / Otros)
+(function() {
+  function showSection(name) {
+    document.querySelectorAll('.section-content').forEach(s => s.classList.add('hidden'));
+    const el = document.getElementById('section-' + name);
+    if (el) el.classList.remove('hidden');
+    document.querySelectorAll('.section-tab').forEach(t => t.classList.toggle('active', t.dataset.target === name));
+    // aplicar tema por sección en el body
+    document.body.classList.remove('theme-fechas','theme-juegos','theme-otros');
+    document.body.classList.add('theme-' + name);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.section-tab').forEach(btn => {
+      btn.addEventListener('click', () => showSection(btn.dataset.target));
+    });
+    // inicial
+    showSection('fechas');
+
+    // contador 'tiempo juntos' en dashboard
+    const start = new Date('2024-03-22T00:00:00');
+    function updateTogether(){
+      const now = new Date();
+      let diff = now - start;
+      const d = Math.floor(diff / (1000*60*60*24));
+      diff -= d * (1000*60*60*24);
+      const h = Math.floor(diff / (1000*60*60));
+      diff -= h * (1000*60*60);
+      const m = Math.floor(diff / (1000*60));
+      const elD = document.getElementById('together-days');
+      const elH = document.getElementById('together-hours');
+      const elM = document.getElementById('together-mins');
+      if(elD) elD.textContent = d;
+      if(elH) elH.textContent = h;
+      if(elM) elM.textContent = m;
+    }
+    updateTogether(); setInterval(updateTogether, 60*1000);
+
+    // exportar puntuaciones (.txt)
+    const exportBtn = document.createElement('button');
+    exportBtn.textContent = 'Exportar puntuaciones';
+    exportBtn.className = 'section-tab';
+    exportBtn.style.marginLeft = '10px';
+    exportBtn.addEventListener('click', () => {
+      const data = JSON.parse(localStorage.getItem('game_scores') || '[]');
+      if (!data.length) { alert('No hay puntuaciones guardadas'); return; }
+      const lines = data.map(s => `${s.date} | ${s.game} | ${s.score} | ${s.meta || ''}`);
+      const blob = new Blob([lines.join('\n')], {type: 'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'scores.txt'; a.click(); URL.revokeObjectURL(url);
+    });
+    const nav = document.querySelector('.sections-nav'); if(nav) nav.appendChild(exportBtn);
+  });
+})();
+
+// helper público para que los juegos guarden puntuaciones
+function saveGameScore(game, score, meta){
+  const store = JSON.parse(localStorage.getItem('game_scores') || '[]');
+  store.push({game, score, meta: meta || '', date: new Date().toISOString()});
+  localStorage.setItem('game_scores', JSON.stringify(store));
+}

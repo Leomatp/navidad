@@ -1,0 +1,8 @@
+/* Styles for 21 March flowers page */
+.flores-page .date-hero{padding:36px 28px; background:linear-gradient(90deg,#fff 0%, #fff0f6 100%);}
+.girasoles{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; padding:24px}
+.girasol{width:80px; height:120px; display:flex; flex-direction:column; align-items:center}
+.girasol .flor{width:80px; height:80px; border-radius:50%; background:linear-gradient(180deg,#ffd95c,#ffcc33); box-shadow:0 8px 18px rgba(0,0,0,0.08)}
+.girasol .tallo{width:6px; height:40px; background:#2e7d32; margin-top:6px; border-radius:4px}
+
+@media (max-width:640px){.girasol{width:60px;height:100px}}

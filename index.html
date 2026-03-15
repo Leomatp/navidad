@@ -10,55 +10,74 @@
 <body>
     <header class="dashboard">
         <h1>Mi Dashboard</h1>
-        <p class="dashboard-sub">Escoge una fecha para ver su página dedicada</p>
-        <div class="date-list">
-            <a class="date-link" href="dates/2025-03-08.html">2025-03-08</a>
-            <a class="date-link" href="dates/2025-03-14.html">2025-03-14</a>
-            <a class="date-link" href="dates/2025-03-21.html">2025-03-21</a>
+        <p class="dashboard-sub">Explora secciones: fechas, juegos y más</p>
+
+        <nav class="sections-nav" aria-label="Secciones del dashboard">
+            <button class="section-tab active" data-target="fechas">Fechas</button>
+            <button class="section-tab" data-target="juegos">Juegos</button>
+            <button class="section-tab" data-target="otros">Otros</button>
+        </nav>
+
+        <div class="top-links date-list" aria-hidden="true">
             <a class="date-link" href="dates/2025-12-25.html">2025-12-25</a>
             <a class="date-link" href="dates/2026-02-14.html">2026-02-14</a>
-            <a class="date-link" href="dates/otra-fecha.html">Otra fecha</a>
+            <a class="date-link" href="dates/2026-03-08.html">2026-03-08</a>
+            <a class="date-link" href="dates/2026-03-14.html">2026-03-14</a>
+            <a class="date-link" href="dates/2026-03-21.html">2026-03-21</a>
         </div>
     </header>
 
     <main>
         <section class="dashboard-hero">
-            <h2>Bienvenida amorcito 💕</h2>
-            <p>Aquí están todos nuestros momentos especiales</p>
+            <div class="hero-left">
+                <h2>Bienvenida amorcito 💕</h2>
+                <p>Aquí están todos nuestros momentos especiales</p>
+            </div>
+            <div class="hero-right initial-card">
+                <h3>Tiempo juntos</h3>
+                <div class="time-counter">
+                    <span id="together-days">0</span> días
+                    <span id="together-hours">0</span> h
+                    <span id="together-mins">0</span> m
+                </div>
+                <div class="initial-meta">
+                    <p id="initial-note">Comenzó: 22 Mar 2024</p>
+                </div>
+            </div>
         </section>
 
-        <section class="dates-container">
+        <section id="section-fechas" class="dates-container section-content">
             <div class="date-card">
                 <div class="date-card-header">
-                    <span class="date-label">2025-03-08</span>
+                    <span class="date-label">2026-03-08</span>
                 </div>
                 <div class="date-card-content">
                     <h3>💐 Día de la Mujer</h3>
                     <p>Un mensaje para recordarte lo especial que eres.</p>
                 </div>
-                <a href="dates/2025-03-08.html" class="date-card-link">Ver →</a>
+                <a href="dates/2026-03-08.html" class="date-card-link">Ver →</a>
             </div>
 
             <div class="date-card">
                 <div class="date-card-header">
-                    <span class="date-label">2025-03-14</span>
+                    <span class="date-label">2026-03-14</span>
                 </div>
                 <div class="date-card-content">
                     <h3>🐸💗 2 meses</h3>
                     <p>Celebrando nuestros primeros dos meses juntos.</p>
                 </div>
-                <a href="dates/2025-03-14.html" class="date-card-link">Ver →</a>
+                <a href="dates/2026-03-14.html" class="date-card-link">Ver →</a>
             </div>
 
             <div class="date-card">
                 <div class="date-card-header">
-                    <span class="date-label">2025-03-21</span>
+                    <span class="date-label">2026-03-21</span>
                 </div>
                 <div class="date-card-content">
                     <h3>🎁 Sorpresa</h3>
                     <p>Una sorpresa especial para ti.</p>
                 </div>
-                <a href="dates/2025-03-21.html" class="date-card-link">Ver →</a>
+                <a href="dates/2026-03-21.html" class="date-card-link">Ver →</a>
             </div>
 
             <div class="date-card">
@@ -89,6 +108,52 @@
                     <p>Añadir nueva fecha</p>
                 </div>
                 <a href="dates/otra-fecha.html" class="date-card-link">Crear →</a>
+            </div>
+        </section>
+
+        <section id="section-juegos" class="section-content hidden">
+            <div class="dates-container">
+                <div class="date-card game-card">
+                    <div class="date-card-header"><span class="date-label">Juego</span></div>
+                    <div class="date-card-content">
+                        <h3>Memory — Parejas</h3>
+                        <p>Encuentra todas las parejas en el menor número de movimientos.</p>
+                    </div>
+                    <a class="date-card-link" href="games/memory.html">Jugar →</a>
+                </div>
+
+                <div class="date-card game-card">
+                    <div class="date-card-header"><span class="date-label">Juego</span></div>
+                    <div class="date-card-content">
+                        <h3>Tic‑Tac‑Toe</h3>
+                        <p>Clásico 3x3 para dos jugadores en el mismo dispositivo.</p>
+                    </div>
+                    <a class="date-card-link" href="games/tictactoe.html">Jugar →</a>
+                </div>
+
+                <div class="date-card game-card">
+                    <div class="date-card-header"><span class="date-label">Juego</span></div>
+                    <div class="date-card-content">
+                        <h3>Tetris</h3>
+                        <p>Clásico Tetris en canvas: mueve, rota y limpia filas.</p>
+                    </div>
+                    <a class="date-card-link" href="games/tetris.html">Jugar →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-otros" class="section-content hidden">
+            <div class="dates-container">
+                <div class="date-card">
+                    <div class="date-card-header">
+                        <span class="date-label">Info</span>
+                    </div>
+                    <div class="date-card-content">
+                        <h3>Extras</h3>
+                        <p>Notas, enlaces y secciones adicionales.</p>
+                    </div>
+                    <a class="date-card-link" href="#">Ver →</a>
+                </div>
             </div>
         </section>
 

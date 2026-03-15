@@ -1,0 +1,17 @@
+:root{
+--accent:#e91e63;
+--soft:#fff0f6;
+}
+
+body{
+background:linear-gradient(180deg,#fff 0%, #fffaf8 100%);
+}
+
+/* Styles similar to 03-08, adjusted if needed */
+.date-hero{padding:36px 28px; background:linear-gradient(90deg,#fff 0%, #fff0f6 100%); text-align:left}
+.date-hero h1{font-size:2rem; margin:0 0 8px; color:var(--accent)}
+.date-meta{color:#666; font-size:0.95rem; margin-bottom:16px; display:flex; gap:12px; align-items:center}
+.carta{padding:28px; font-size:1.05rem; line-height:1.7; color:#222; text-align:left}
+.signature{margin-top:18px; font-weight:700; color:var(--accent)}
+
+@media (max-width:640px){.date-hero{padding:20px}.carta{padding:18px}.h1{font-size:1.6rem}}
