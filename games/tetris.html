@@ -7,8 +7,17 @@
   <link rel="stylesheet" href="../style.css">
   <style>
     .game-wrap{max-width:420px;margin:24px auto;padding:18px}
-    canvas{background:#111;height:480px;width:240px;display:block;margin:0 auto;border:4px solid #222}
+    canvas{background:transparent;display:block;margin:0 auto;border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,0.55);border:6px solid #141414;max-width:100%;height:auto}
     .controls{display:flex;gap:8px;justify-content:center;margin-top:10px;color:var(--muted-text)}
+    /* Mobile touch controls */
+    .touch-controls{display:none;gap:8px;justify-content:center;margin-top:12px}
+    .touch-controls button{padding:12px 14px;border-radius:8px;background:var(--accent, #ff3b9a);color:#fff;border:0;font-weight:700}
+    @media (max-width:600px){
+      .game-wrap{padding:12px}
+      .controls{font-size:14px}
+      .touch-controls{display:flex}
+      canvas{width:240px;height:480px}
+    }
   </style>
 </head>
 <body>
@@ -18,11 +27,28 @@
       <div class="date-card-content">
         <h3>Tetris (simple)</h3>
         <p>Controles: ← → para mover, ↑ para rotar, ↓ para acelerar.</p>
-        <canvas id="tetris" width="240" height="480"></canvas>
-        <div class="controls">
-          <div id="score">Score: 0</div>
-          <button id="restart">Reiniciar</button>
-          <button id="saveScoreBtn">Guardar puntuación</button>
+        <div style="display:flex;gap:12px;align-items:flex-start;justify-content:center;flex-wrap:wrap">
+          <canvas id="tetris" width="240" height="480"></canvas>
+          <div style="min-width:120px;max-width:160px;color:var(--muted-text)">
+            <div style="margin-bottom:8px;font-weight:700">Siguiente</div>
+            <canvas id="next" width="80" height="80" style="background:transparent;border-radius:8px;display:block;margin-bottom:12px;box-shadow:0 8px 18px rgba(0,0,0,0.45)"></canvas>
+            <div id="stats" style="font-size:14px;line-height:1.4">
+              <div id="score">Score: 0</div>
+              <div id="lines">Líneas: 0</div>
+              <div id="level">Nivel: 0</div>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <button id="pauseBtn">Pausa</button>
+              <button id="restart">Reiniciar</button>
+              <button id="saveScoreBtn">Guardar puntuación</button>
+            </div>
+          </div>
+        </div>
+        <div class="touch-controls" id="touchControls">
+          <button id="btnLeft">◀</button>
+          <button id="btnRotate">⟳</button>
+          <button id="btnRight">▶</button>
+          <button id="btnDown">▼</button>
         </div>
       </div>
       <a class="date-card-link" href="../index.html">Volver →</a>

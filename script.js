@@ -95,7 +95,7 @@ try {
     showSection('fechas');
 
     // contador 'tiempo juntos' en dashboard
-    const start = new Date('2024-03-22T00:00:00');
+    const start = new Date('2025-03-22T00:00:00');
     function updateTogether(){
       const now = new Date();
       let diff = now - start;
