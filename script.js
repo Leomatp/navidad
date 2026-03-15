@@ -72,3 +72,28 @@ try {
     // nothing for now; placeholder in case we add behaviors later
   }
 } catch (e) {}
+
+// Bloquear acceso a la fecha 2025-03-21 y mostrar advertencia
+(function() {
+  const blockedHref = 'dates/2025-03-21.html';
+
+  function handleBlockedClick(e) {
+    e.preventDefault();
+    alert('Advertencia: La fecha 2025-03-21 aún no está disponible.');
+  }
+
+  function markBlocked() {
+    const anchors = document.querySelectorAll(`a[href="${blockedHref}"]`);
+    anchors.forEach(a => {
+      a.classList.add('blocked');
+      a.addEventListener('click', handleBlockedClick);
+      a.addEventListener('keydown', function(ev) { if (ev.key === 'Enter') { ev.preventDefault(); handleBlockedClick(ev); }});
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', markBlocked);
+  } else {
+    markBlocked();
+  }
+})();

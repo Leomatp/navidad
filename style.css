@@ -244,3 +244,56 @@ button:hover {
 .back:hover { color:#e91e63 }
 .empty-slot { padding: 40px 20px; color:#111 }
 .muted { color:#777 }
+
+/* Styles for individual date pages */
+.date-page {
+  max-width: 880px;
+  margin: 32px auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  overflow: hidden;
+  border: 2px solid #ffe6f0;
+}
+.date-hero {
+  padding: 36px 28px;
+  background: linear-gradient(90deg,#fff 0%, #fff0f6 100%);
+  text-align: left;
+}
+.date-hero h1 { font-size: 2rem; margin: 0 0 8px; color: #e91e63 }
+.date-meta { color: #666; font-size: 0.95rem; margin-bottom: 16px; display:flex; gap:12px; align-items:center }
+.carta { padding: 28px; font-size: 1.05rem; line-height: 1.7; color: #222; text-align:left }
+.carta p { margin: 0 0 12px }
+.carta ul { margin: 8px 0 0 20px }
+.signature { margin-top: 18px; font-weight: 700; color: #e91e63 }
+.date-actions { padding: 20px 28px 36px; display:flex; gap:10px; justify-content:flex-start }
+.btn { display:inline-block; padding:10px 16px; border-radius:28px; border:2px solid #e91e63; background:#fff; color:#111; text-decoration:none; font-weight:600 }
+.btn.primary { background:#e91e63; color:#fff }
+
+@media (max-width: 640px) {
+  .date-page { margin: 18px; }
+  .date-hero { padding: 20px }
+  .carta { padding: 18px }
+  h1 { font-size: 1.6rem }
+}
+
+/* Bloqueo visual para fechas que aún no están disponibles */
+.blocked {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.blocked.date-card-link, .blocked.date-link {
+  position: relative;
+}
+.blocked::after {
+  content: "No disponible";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
