@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cartas 💗</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 2rem;
+
+            background:
+                linear-gradient(180deg,
+                    #fff7fb 0%,
+                    #ffe4ef 100%);
+
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            background:
+                radial-gradient(circle,
+                    rgba(255, 105, 180, .15),
+                    transparent 70%);
+
+            top: -150px;
+            right: -100px;
+        }
+
+        body::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            background:
+                radial-gradient(circle,
+                    rgba(255, 182, 193, .2),
+                    transparent 70%);
+
+            bottom: -120px;
+            left: -100px;
+        }
+
+        .letters-page {
+
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            max-width: 700px;
+
+            padding: 3rem;
+
+            border-radius: 35px;
+
+            background:
+                rgba(255, 255, 255, .65);
+
+            backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255, 255, 255, .5);
+
+            box-shadow:
+                0 20px 50px rgba(255, 105, 180, .15);
+        }
+
+        .letters-page h1 {
+
+            font-size: 3rem;
+
+            text-align: center;
+
+            margin-bottom: 1rem;
+
+            background:
+                linear-gradient(90deg,
+                    #ff4d9d,
+                    #ff7ab8);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #7b5263;
+
+            margin-bottom: 2.5rem;
+
+            line-height: 1.8;
+        }
+
+        form {
+
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+
+        input,
+        textarea,
+        select {
+
+            width: 100%;
+
+            padding: 1rem 1.2rem;
+
+            border: none;
+
+            border-radius: 18px;
+
+            background: white;
+
+            font-size: 1rem;
+
+            outline: none;
+
+            box-shadow:
+                0 5px 15px rgba(255, 105, 180, .08);
+
+            transition: .3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 20px rgba(255, 105, 180, .18);
+        }
+
+        textarea {
+
+            min-height: 220px;
+
+            resize: none;
+
+            line-height: 1.8;
+        }
+
+        button {
+
+            border: none;
+
+            padding: 1rem;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(135deg,
+                    #ff4d9d,
+                    #ff7ab8);
+
+            color: white;
+
+            font-size: 1rem;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .35s;
+
+            box-shadow:
+                0 15px 30px rgba(255, 77, 157, .2);
+        }
+
+        button:hover {
+
+            transform:
+                translateY(-4px) scale(1.02);
+
+            box-shadow:
+                0 20px 40px rgba(255, 77, 157, .35);
+        }
+
+        #successMessage {
+
+            margin-top: 1.5rem;
+
+            text-align: center;
+
+            font-size: 1rem;
+
+            color: #ff4d9d;
+
+            font-weight: 600;
+        }
+
+        @media(max-width:700px) {
+
+            .letters-page {
+                padding: 2rem;
+            }
+
+            .letters-page h1 {
+                font-size: 2.2rem;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section class="letters-page">
+
+        <h1>Cartas para nosotros 💗</h1>
+
+        <p class="subtitle">
+            A veces las palabras guardan sentimientos
+            que el corazón no quiere olvidar.
+        </p>
+
+        <form id="letterForm">
+
+            <input type="text" id="from_name" placeholder="Tu nombre" required>
+
+            <select id="to_email" required>
+
+                <option value="">
+                    Selecciona destinatario
+                </option>
+
+                <option value="leomatiaspinto434@gmail.com">
+                    Para Leo 💌
+                </option>
+
+                <option value="belenaravena478@gmail.com">
+                    Para Belén 💗
+                </option>
+
+            </select>
+
+            <textarea id="message" placeholder="Escribe algo bonito..." required></textarea>
+
+            <button type="submit">
+                Enviar carta 💌
+            </button>
+
+        </form>
+
+        <p id="successMessage"></p>
+
+    </section>
+
+    <script>
+
+        emailjs.init("HKo0g5Xhcfpf7mg_5");
+
+        const form = document.getElementById("letterForm");
+
+        form.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const from_name =
+                document.getElementById("from_name").value;
+
+            const message =
+                document.getElementById("message").value;
+
+            const to_email =
+                document.getElementById("to_email").value;
+
+            emailjs.send(
+                "service_bel7udg",
+                "template_lk17oi9",
+                {
+                    from_name: from_name,
+                    message: message,
+                    to_email: to_email
+                }
+            )
+                .then(() => {
+
+                    const success =
+                        document.getElementById("successMessage");
+
+                    success.textContent =
+                        "Carta enviada correctamente 💗";
+
+                    success.animate([
+                        {
+                            opacity: 0,
+                            transform: "translateY(10px)"
+                        },
+                        {
+                            opacity: 1,
+                            transform: "translateY(0)"
+                        }
+                    ], {
+                        duration: 700,
+                        fill: "forwards"
+                    });
+
+                    form.reset();
+
+                })
+                .catch((error) => {
+
+                    document.getElementById("successMessage").textContent =
+                        "Error al enviar la carta";
+
+                    console.log(error);
+
+                });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
