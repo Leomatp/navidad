@@ -65,7 +65,6 @@ document.querySelectorAll('audio').forEach(a => {
   });
 });
 
-// Si estamos en una página de fecha, destacar enlace del dashboard (si existe)
 try {
   const backLink = document.querySelector('.back');
   if (backLink) {
@@ -73,9 +72,6 @@ try {
   }
 } catch (e) {}
 
-// Nota: el bloqueo de marzo fue removido — enlaces vuelven a comportarse normalmente
-
-// Secciones del dashboard (Fechas / Juegos / Otros)
 (function() {
   function showSection(name) {
     document.querySelectorAll('.section-content').forEach(s => s.classList.add('hidden'));
@@ -94,7 +90,6 @@ try {
     // inicial
     showSection('fechas');
 
-    // contador 'tiempo juntos' en dashboard
     const start = new Date('2025-03-22T00:00:00');
     function updateTogether(){
       const now = new Date();

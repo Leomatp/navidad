@@ -1,0 +1,261 @@
+:root {
+    --pink: #ff5fa2;
+    --soft: #ffe6f1;
+    --bg: #fff8fc;
+    --text: #513040;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, #ffd9ea 0%, #fff8fc 55%);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+.date-page {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.date-hero {
+    position: relative;
+    padding: 6rem 2rem;
+    border-radius: 40px;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, .45);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, .6);
+
+    box-shadow:
+        0 20px 60px rgba(255, 95, 162, .18);
+
+    text-align: center;
+}
+
+.date-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 95, 162, .15),
+            rgba(255, 255, 255, .05));
+
+    pointer-events: none;
+}
+
+.date-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--pink);
+}
+
+.hero-quote {
+    font-size: 1.25rem;
+    line-height: 2;
+    max-width: 700px;
+    margin: auto;
+    opacity: .85;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 140px;
+    height: 140px;
+
+    background: rgba(255, 255, 255, .75);
+    backdrop-filter: blur(12px);
+
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 10px 30px rgba(255, 95, 162, .12);
+
+    transition: .35s;
+}
+
+.time-box:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.time-box span {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--pink);
+}
+
+.timeline {
+    margin-top: 6rem;
+}
+
+.timeline-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.timeline-item {
+    flex: 1;
+    padding: 2rem;
+    border-radius: 30px;
+
+    background: white;
+
+    box-shadow:
+        0 8px 25px rgba(255, 95, 162, .08);
+
+    text-align: center;
+}
+
+.dot {
+    width: 18px;
+    height: 18px;
+    background: #ffd0e3;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.dot.active {
+    background: var(--pink);
+
+    box-shadow:
+        0 0 25px rgba(255, 95, 162, .8);
+}
+
+.cosas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.cosa {
+    padding: 2rem;
+    border-radius: 30px;
+
+    background:
+        linear-gradient(180deg,
+            white,
+            #fff4f9);
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 25px rgba(255, 95, 162, .08);
+
+    transition: .35s;
+}
+
+.cosa:hover {
+    transform: translateY(-10px) rotate(-2deg);
+}
+
+.cosa p {
+    margin-top: 1rem;
+    font-size: 1.05rem;
+}
+
+.carta {
+    margin-top: 5rem;
+
+    padding: 4rem;
+
+    background: white;
+    border-radius: 40px;
+
+    line-height: 2.1;
+    font-size: 1.12rem;
+
+    box-shadow:
+        0 15px 40px rgba(255, 95, 162, .08);
+}
+
+.signature {
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    color: var(--pink);
+}
+
+#btnSorpresa {
+    background:
+        linear-gradient(135deg,
+            #ff5fa2,
+            #ff8cc0);
+
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 999px;
+
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(255, 95, 162, .25);
+
+    transition: .3s;
+}
+
+#btnSorpresa:hover {
+    transform: scale(1.08);
+}
+
+#mensajeSorpresa {
+    display: none;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--pink);
+}
+
+.petal {
+    position: fixed;
+    top: -20px;
+
+    width: 18px;
+    height: 18px;
+
+    background:
+        radial-gradient(circle, #ff8fbc, #ff5fa2);
+
+    border-radius:
+        60% 40% 70% 30%;
+
+    pointer-events: none;
+
+    animation: fall linear forwards;
+
+    z-index: 999;
+    filter: blur(.3px);
+}
+
+@keyframes fall {
+
+    0% {
+        transform:
+            translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh) rotate(360deg);
+    }
+
+}
